@@ -1,0 +1,19 @@
+# Netlify-format redirects. Equivalent 301s are needed at the server level on
+# other hosts. Rules are evaluated top to bottom; the first match wins.
+
+# 1. Canonical host — never serve the site on the apex domain as a duplicate.
+https://unitedtermitenj.net/* https://www.unitedtermitenj.net/:splat 301!
+http://unitedtermitenj.net/*  https://www.unitedtermitenj.net/:splat 301!
+
+# 2. Old Hibu site -> new site.
+#    The service page slugs were kept identical on purpose, so those URLs
+#    (termite-inspections.html, termite-control.html, pest-control.html,
+#    crawl-space-services.html, reviews.html, contact.html) already resolve
+#    with no rule needed. Only these old URLs have no direct counterpart:
+/index.html            /                301!
+/video-splash-pop.html /                301
+/referrer.html         /                301
+
+# The old mirror also exposed crawler artifacts (/signals/*, /_dm/*, e.html,
+# n.html, o.html, t.html and similar). They were never linked publicly; they
+# fall through to 404.html, which is the correct signal for Google.
