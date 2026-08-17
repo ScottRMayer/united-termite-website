@@ -967,10 +967,12 @@ a.card { text-decoration: none; color: inherit; }
 .info-card li { padding-block: 0.12rem; }
 .info-card a { text-decoration: none; font-weight: 500; }
 
-.hours-table { width: 100%; border-collapse: collapse; font-size: 0.96rem; color: var(--ink-soft); }
-.hours-table th, .hours-table td { padding: 0.3rem 0; }
-.hours-table th { font-weight: 400; text-align: left; }
-.hours-table td:last-child { text-align: right; font-weight: 600; color: var(--ink); }
+/* Label above value, so the longer entries ("Technicians in the field")
+   stay readable inside a narrow info card. */
+.hours-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.5rem; }
+.hours-list li { display: flex; flex-direction: column; }
+.hours-list span { font-size: 0.85rem; color: var(--ink-faint); }
+.hours-list strong { font-size: 0.95rem; font-weight: 600; color: var(--ink); }
 
 /* Forms */
 .form-panel {
