@@ -1,5 +1,10 @@
 # United Termite & Pest Control — New Website
 
+### 👉 Live preview: **https://scottrmayer.github.io/united-termite-website/**
+
+That link is a preview for review only — it is not the business's live site.
+The real site would be published to `www.unitedtermitenj.net` (see Deploying).
+
 A modern, fast, dependency-free static website rebuilt from the old Hibu/Duda site
 (`Old Site/` mirror). All content — services, reviews, licenses, hours, photos —
 was carried over from the original site and reorganized with a new design.
