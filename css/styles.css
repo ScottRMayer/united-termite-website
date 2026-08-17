@@ -258,14 +258,28 @@ ul { padding-left: 1.2em; }
 .topbar-item svg { flex: none; opacity: 0.8; }
 .topbar-right { display: flex; gap: 1.4rem; flex-wrap: wrap; }
 
-@media (max-width: 720px) {
-  .topbar-right .topbar-hours { display: none; }
+/* The utility bar stays exactly one line at every width. Each threshold is
+   the measured width the remaining items need plus headroom — items are
+   477px (tagline + service area), 295px (hours), 160px (licence), with
+   16px/22.4px gaps, inside a container of min(1180px, viewport - 40px).
+   Everything dropped here still appears in the footer on every page. */
+@media (max-width: 1029px) {
+  /* 970px of content no longer fits: drop the licence chip. */
+  .topbar-right .topbar-item:not(.topbar-hours) { display: none; }
 }
-@media (max-width: 560px) {
-  .topbar-right { display: none; }
-  /* Keep the utility bar to a single line on phones: the service
-     area is the useful half, and 'family owned' repeats in the footer. */
+@media (max-width: 859px) {
+  /* 788px no longer fits: drop the "Family owned & operated" lead-in. */
   .topbar-lede { display: none; }
+}
+@media (max-width: 679px) {
+  /* 603px no longer fits: drop the hours, keeping the service area. */
+  .topbar-right { display: none; }
+}
+@media (max-width: 400px) {
+  /* Smallest phones: shed the pin icon and tighten the type so the
+     service-area line still holds one row. */
+  .topbar { font-size: 0.8rem; }
+  .topbar-item > svg { display: none; }
 }
 
 /* --------------------------------------------------------------------------
